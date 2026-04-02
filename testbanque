@@ -1,0 +1,36 @@
+public class Testbanques {
+    public static void main(String[] args) {
+
+     
+        Banque t = new Banque("MarocBank", 1500);
+
+        Comptebancaire c1 = new Comptebancaire("MALIKA", 1000, 200);
+        Comptebancaire c2 = new Comptebancaire("RACHID", 2000, 300);
+        Comptebancaire c3 = new Comptebancaire("SALMA", 1500, 200);
+
+      
+       t.ajouterCompte(c1);
+       t.ajouterCompte(c2);
+       t.ajouterCompte(c3);
+
+  
+        c1.deposer(500);
+        c1.retirer(1200);
+
+
+        c2.virementVers(c3, 400);
+
+     
+        System.out.println("\n--- Liste des comptes ---");
+       t.afficherTous();
+
+
+        System.out.println("\n--- Intérêts sur c2 ---");
+        c2.calculerSoldeAvecInterets();
+        c2.calculerSoldeAvecInterets(0.015);
+
+
+        System.out.println("\nNombre total de comptes : " + Comptebancaire.getNbComptes());
+        System.out.println("Taux d'intérêt annuel : " + Comptebancaire.getTauxInteretAnnuel());
+    }
+}
